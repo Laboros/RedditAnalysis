@@ -37,7 +37,7 @@ public class ImportReviewJob extends Configured implements Tool {
 	public int run(String[] args) throws Exception {
 		
 		Configuration conf=super.getConf();
-		
+		conf.set("mapreduce.framework.name", "local");
 		Job importReviewJob=Job.getInstance(conf, this.getClass().getName());
 		conf.set(XmlInputFormat.START_TAG_KEY, "<document>");
 		conf.set(XmlInputFormat.END_TAG_KEY, "</document>");
