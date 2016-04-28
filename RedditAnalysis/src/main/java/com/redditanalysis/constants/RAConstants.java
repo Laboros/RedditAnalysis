@@ -5,32 +5,32 @@ public enum RAConstants {
 	ONE (1),
 	
 	// Property file keys
-	BASE_LOC ( "BASE_LOC"),
-	INBOX ( "INBOX"),
+	BASE_LOC ("BASE_LOC"),
+	INBOX ("INBOX"),
 
-	CTL_FILE_EXT ( "CTL_FILE_EXT"),
-	META_FILE_EXT ( "META_FILE_EXT"),
-	DAT_FILE_EXT ( "DAT_FILE_EXT"),
+	CTL_FILE_EXT ("CTL_FILE_EXT"),
+	META_FILE_EXT ("META_FILE_EXT"),
+	DAT_FILE_EXT ("DAT_FILE_EXT"),
 
-	HDFS_CONTROL_FOLDER_NAME ( "CONTROL_FOLDER_NAME"),
-	HDFS_META_FOLDER_NAME ( "META_FOLDER_NAME"),
-	HDFS_DATA_FOLDER_NAME ( "DATA_FOLDER_NAME"),
+	HDFS_CONTROL_FOLDER_NAME ("CONTROL_FOLDER_NAME"),
+	HDFS_META_FOLDER_NAME ("META_FOLDER_NAME"),
+	HDFS_DATA_FOLDER_NAME ("DATA_FOLDER_NAME"),
 
 	// File Extensions
-	EXTENSION_CTL ( "ctl"),
-	EXTENSION_META ( "meta"),
-	EXTENSION_DATA ( "dat"),
+	EXTENSION_CTL ("ctl"),
+	EXTENSION_META ("meta"),
+	EXTENSION_DATA ("dat"),
 
 	
 	
 	// Separators 
-	SEPERATOR_PIPE ( "|"),
-	SEPERATOR_TAB ( "\t"),
-	SEPERATOR_COMMA ( ","),
-	SEPERATOR_EQUAL ( "("),
-	SEPERATOR_DOT ( "."),
-	FALSE ( "N"),
-	EMPTY ( ""),
+	SEPERATOR_PIPE ("|"),
+	SEPERATOR_TAB ("\t"),
+	SEPERATOR_COMMA (","),
+	SEPERATOR_EQUAL ("("),
+	SEPERATOR_DOT ("."),
+	FALSE ("N"),
+	EMPTY (""),
 	ZERO ( 0),
 	
 	//Control File Indexes
@@ -58,26 +58,26 @@ public enum RAConstants {
 	CTL_FREQUENCY_IDX(22),
 	CTL_RECORDDELIMITER_IDX(23),
 
-	TRIGGER_FILE_NAME_EXT ( "TRIGGER_FILE_NAME_EXT"),
+	TRIGGER_FILE_NAME_EXT ("TRIGGER_FILE_NAME_EXT"),
 
-	FILE_SEPARATOR_NAME ( "file.separator"),
+	FILE_SEPARATOR_NAME ("file.separator"),
 	FILE_SEPARATOR(System.getProperty("file.separator")),
 
-	HDFS_BASE_LOC ( "HDFS_BASE_LOC"),
-	ARCHIVE_LOC ( "ARCHIVE"),
-	FAILED_LOC ( "FAILED"),
+	HDFS_BASE_LOC ("HDFS_BASE_LOC"),
+	ARCHIVE_LOC ("ARCHIVE"),
+	FAILED_LOC ("FAILED"),
 
-	PROPERTY_FILE_NAME ( "common.properties"),
+	PROPERTY_FILE_NAME ("RedditAnalysis.properties"),
 
-	PROJECT_TIME_FORMAT ( "yyyyMMdd"),
+	PROJECT_TIME_FORMAT ("DATE_FORMAT"),
 
-	HDFS_INBOX_LOC ( "HDFS_INBOX"),
+	HDFS_INBOX_LOC ("HDFS_INBOX"),
 
-	DESTINATION_FORMAT ( "DESTINATION_FORMAT"),
+	DESTINATION_FORMAT ("DESTINATION_FORMAT"),
 
-	CLASS_AVRO_FORMAT ( "org.avroservice.AvroStorageFormat"),
+	CLASS_AVRO_FORMAT ("org.avroservice.AvroStorageFormat"),
 
-	DESTINATION_FORMAT_AVRO ( "avro"), // Important Note::: The value is in properties file name for  PROPERTY_FILE_NAME key DESTINATION_FORMAT
+	DESTINATION_FORMAT_AVRO ("avro"), // Important Note::: The value is in properties file name for  PROPERTY_FILE_NAME key DESTINATION_FORMAT
 
 		TYPE("type"),
 		TYPE_RECORD("record"),

@@ -49,6 +49,10 @@ public class XmlInputFormat extends TextInputFormat {
   @Override
   public RecordReader<LongWritable, Text> createRecordReader(InputSplit split, TaskAttemptContext context) {
     try {
+    
+      Configuration conf=context.getConfiguration();
+      System.out.println(conf.get("mapreduce.framework.name"));
+      System.out.println(conf.get("mapred.job.tracker"));
       return new XmlRecordReader((FileSplit) split, context.getConfiguration());
     } catch (IOException ioe) {
       log.warn("Error while creating XmlRecordReader", ioe);

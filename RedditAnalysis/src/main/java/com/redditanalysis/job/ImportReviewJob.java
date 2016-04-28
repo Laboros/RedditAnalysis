@@ -23,7 +23,12 @@ public class ImportReviewJob extends Configured implements Tool {
 			return;
 		}
 		try {
-			int i=ToolRunner.run(new ImportReviewJob(), args);
+			Configuration conf=new Configuration(Boolean.TRUE);
+			conf.set("fs.defaultFS", "hdfs://localhost.localdomain:8020");
+			conf.set("mapreduce.framework.name", "classic");
+			conf.set("mapred.job.tracker", "localhost.localdomain:8021");
+			
+			int i=ToolRunner.run(conf,new ImportReviewJob(), args);
 			if(i==0){
 				System.out.println("SUCCESS");
 			}else{
@@ -37,8 +42,9 @@ public class ImportReviewJob extends Configured implements Tool {
 	public int run(String[] args) throws Exception {
 		
 		Configuration conf=super.getConf();
-		conf.set("mapreduce.framework.name", "local");
+		System.out.println(conf.get("mapreduce.framework.name"));
 		Job importReviewJob=Job.getInstance(conf, this.getClass().getName());
+		importReviewJob.setJarByClass(this.getClass());
 		conf.set(XmlInputFormat.START_TAG_KEY, "<document>");
 		conf.set(XmlInputFormat.END_TAG_KEY, "</document>");
 		

@@ -35,6 +35,7 @@ public class RACronJob extends Configured implements Tool{
 	public static void main(String[] args) throws IOException {
 
 		// Read Properties
+
 		propReader = new PropertyReader(RAConstants.PROPERTY_FILE_NAME.getValue());
 		boolean propertiesLoaded = propReader.loadProperties();
 
@@ -42,6 +43,7 @@ public class RACronJob extends Configured implements Tool{
 
 			try {
 				Configuration conf = new Configuration(Boolean.TRUE);
+				conf.set("fs.defaultFS", "hdfs://localhost.localdomain:8020");
 				int i = ToolRunner.run(conf, new RACronJob(), args);
 				if (i == 0) {
 					System.out.println("Success");
@@ -156,7 +158,7 @@ public class RACronJob extends Configured implements Tool{
 		Map<String, List<String>> groupedFiles = FileUtil.groupSimilarFiles(INBOX_LOC,triggerExt);
 		
 		
-		if(groupedFiles!=null && groupedFiles.isEmpty()){
+		if(groupedFiles!=null && !groupedFiles.isEmpty()){
 			
 			for (Map.Entry<String, List<String>> groupFile : groupedFiles.entrySet()) 
 			{
@@ -223,16 +225,17 @@ public class RACronJob extends Configured implements Tool{
 		boolean isFilesMovedTOHDFS=Boolean.TRUE;
 		
 		final Configuration conf=super.getConf();
+		System.out.println(conf.get("fs.defaultFS"));
 		
 		//HDFS base location from property file
 		final String hdfsbaseLoc=propReader.getValue(RAConstants.HDFS_BASE_LOC.getValue());
 		final String xmlFileLoc = FileUtil.getExtFile(processFiles,propReader.getValue(RAConstants.DAT_FILE_EXT.getValue()));
 		final String hdfsXMLFileLoc = hdfsbaseLoc
-							+RAConstants.FILE_SEPARATOR
+							+RAConstants.FILE_SEPARATOR.getValue()
 							+propReader.getValue(RAConstants.HDFS_DATA_FOLDER_NAME.getValue())
-							+RAConstants.FILE_SEPARATOR
+							+RAConstants.FILE_SEPARATOR.getValue()
 							+propReader.getValue(RAConstants.HDFS_INBOX_LOC.getValue())
-							+RAConstants.FILE_SEPARATOR
+							+RAConstants.FILE_SEPARATOR.getValue()
 							+DateUtil.convertTimeIntoFormat(processStartTime,propReader.getValue(RAConstants.PROJECT_TIME_FORMAT.getValue()));
 
 		System.out.println("DAT FILE LOC:" + hdfsXMLFileLoc);
