@@ -1,7 +1,5 @@
 package com.redditanalysis.job;
 
-
-
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.Path;
@@ -55,7 +53,7 @@ public class ImportReviewJob extends Configured implements Tool {
 		
 		job.setJarByClass(ImportReviewJob.class);
 		job.setMapperClass(ImportReviewMapper.class);
-		job.setNumReduceTasks(0);
+		job.setNumReduceTasks(0);  
 		
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(NullWritable.class);
