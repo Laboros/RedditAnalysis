@@ -39,7 +39,7 @@ public class ImportReviewJob extends Configured implements Tool {
 			e.printStackTrace();
 		}
 	}
-
+  
 	public int run(String[] args) throws Exception {
 
 		Configuration conf = new Configuration();
